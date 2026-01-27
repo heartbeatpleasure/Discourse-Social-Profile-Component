@@ -1,0 +1,13 @@
+{
+  "name": "Discourse Social Profile Component",
+  "about_url": "https://github.com/heartbeatpleasure/Discourse-Social-Profile-Component",
+  "license_url": "https://github.com/heartbeatpleasure/Discourse-Social-Profile-Component/blob/main/LICENSE",
+  "assets": {
+    "onlyfans_icon": "assets/onlyfans.svg",
+    "fetlife_icon": "assets/fetlife.svg",
+    "fansly_icon": "assets/fansly.svg",
+    "tumblr_icon": "assets/tumblr.svg"
+  },
+  "component": true,
+  "color_schemes": {}
+}

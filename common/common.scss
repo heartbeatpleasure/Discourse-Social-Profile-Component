@@ -1,0 +1,68 @@
+.iconic-user-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  a {
+    margin-right: 5px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .slc-icon-frame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slc-icon-frame.slc-badge {
+    background-color: var(--slc-badge-bg);
+    border-radius: var(--slc-badge-radius, 0.25em);
+
+    // keep badge size consistent with icon size
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  // Make the glyph slightly smaller inside the badge
+  .slc-icon-frame.slc-badge > * {
+    transform: scale(var(--slc-icon-scale, 0.85));
+    transform-origin: center;
+  }
+
+  // FontAwesome / d-icon output
+  .fa {
+    font-size: 1.2em;
+    line-height: 1;
+    color: var(--slc-icon-color, var(--slc-global-icon-color, #{$icon-color}));
+  }
+
+  .fa.d-icon.svg-icon.svg-string {
+    margin-left: 0px;
+  }
+
+  // Custom mask icon (monochrome)
+  .slc-custom-icon {
+    display: block;
+
+    width: 1.2em;
+    height: 1.2em;
+
+    background-color: var(--slc-icon-color, var(--slc-global-icon-color, #{$icon-color}));
+
+    -webkit-mask: var(--slc-icon-mask) no-repeat center / contain;
+    mask: var(--slc-icon-mask) no-repeat center / contain;
+  }
+
+  // Full-color image icon (SVG/PNG)
+  .slc-image-icon {
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+  }
+}

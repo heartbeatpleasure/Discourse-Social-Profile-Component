@@ -1,0 +1,83 @@
+en:
+  theme_metadata:
+    settings:
+      icon_color:
+        label: Icon color (light)
+        description: "Default icon color for light color schemes. Also used as fallback if a per-link color is empty."
+
+      icon_color_dark:
+        label: Icon color (dark)
+        description: "Optional. Default icon color for dark color schemes. If empty, Icon color (light) is used for both."
+
+      use_platform_colors:
+        label: Use per-link colors
+        description: "When enabled, each Social links item can override the icon color using 'Icon color (light)' and optionally 'Icon color (dark)'. If the dark value is empty, the light value is used."
+
+      social_links:
+        label: Social links
+        description: "Each item defines one icon/link shown on the user profile. Order here = order shown on the profile."
+        schema:
+          properties:
+            id:
+              label: Key (unique)
+              description: "Internal identifier (must be unique), e.g. instagram, onlyfans."
+
+            enabled:
+              label: Enabled
+              description: "Show/hide this social link."
+
+            label:
+              label: Tooltip label
+              description: "Shown as hover text."
+
+            user_field:
+              label: User field name
+              description: "Must exactly match the Discourse Custom User Field name (Admin → User Fields)."
+
+            icon:
+              label: Discourse / FontAwesome icon name
+              description: "Used only if no custom icon is set. Examples: fab-instagram, envelope."
+
+            icon_image:
+              label: Custom icon image (full-color)
+              description: "Optional. Theme upload key (recommended) or a full HTTPS URL (SVG/PNG). If set, it overrides Mask icon and Icon name."
+
+            icon_mask:
+              label: Custom icon mask (monochrome)
+              description: "Optional. Theme upload key (recommended) or a full HTTPS URL (SVG). Used as a CSS mask so it can be recolored. Used only when Custom icon image is empty."
+
+            badge_background:
+              label: Badge background (light)
+              description: "Optional. If set, a background behind the icon is shown (badge). Any valid CSS color."
+
+            badge_background_dark:
+              label: Badge background (dark)
+              description: "Optional. Used on dark color schemes. If empty, Badge background (light) is used."
+
+            badge_radius:
+              label: Badge corner radius
+              description: "Optional. Any valid CSS border-radius value. Examples: 4px, 0.5rem, 50%. Tip: if you enter only a number (e.g. 6), it will be treated as 6px."
+
+            color:
+              label: Icon color (light)
+              description: "Optional. Used only when 'Use per-link colors' is enabled. Any valid CSS color. If empty, uses global icon color."
+
+            color_dark:
+              label: Icon color (dark)
+              description: "Optional. Used only when 'Use per-link colors' is enabled. If empty, Icon color (light) is used."
+
+            input_type:
+              label: Input type
+              description: "How the user field value is interpreted."
+
+            base_url:
+              label: Base URL
+              description: "Used for handle/numeric_id input types to build the final link."
+
+            allowed_hosts:
+              label: Allowed hosts
+              description: "Comma-separated list of allowed hostnames for locked URLs (helps prevent misleading links)."
+
+            path_regex:
+              label: Path regex (optional)
+              description: "Optional regex applied to the URL path for extra safety."

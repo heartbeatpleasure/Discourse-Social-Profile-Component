@@ -1,0 +1,13 @@
+{
+  "name": "discourse-social-profile-component",
+  "version": "1.0.0",
+  "repository": "https://github.com/heartbeatpleasure/Discourse-Social-Profile-Component",
+  "author": "heartbeatpleasure",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@discourse/lint-configs": "^1.2.0",
+    "ember-template-lint": "^5.13.0",
+    "eslint": "^8.54.0",
+    "prettier": "^2.8.8"
+  }
+}
