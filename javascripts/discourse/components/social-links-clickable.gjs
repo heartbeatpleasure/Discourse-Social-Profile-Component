@@ -22,6 +22,33 @@ export default class SocialLinksClickable extends Component {
 
   get isDarkScheme() {
     if (typeof document === "undefined") return false;
+
+    // 1) Prefer the *active* computed scheme (updates with palette)
+    try {
+      const cs = getComputedStyle(document.documentElement)
+        .colorScheme?.toString()
+        .trim()
+        .toLowerCase();
+
+      if (cs) {
+        // colorScheme can be "light", "dark", or "light dark"
+        if (cs.includes("dark") && !cs.includes("light")) return true;
+        if (cs.includes("light") && !cs.includes("dark")) return false;
+        // If it's "light dark" (both supported), fall through to --scheme-type
+      }
+
+      const schemeType = getComputedStyle(document.documentElement)
+        .getPropertyValue("--scheme-type")
+        .trim()
+        .toLowerCase();
+
+      if (schemeType === "dark") return true;
+      if (schemeType === "light") return false;
+    } catch {
+      // ignore and fall back
+    }
+
+    // 2) Fallback: initial boot meta (can be stale)
     const meta = document.querySelector("meta#data-discourse-setup");
     return meta?.dataset?.colorSchemeIsDark === "true";
   }
