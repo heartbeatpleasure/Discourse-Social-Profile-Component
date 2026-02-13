@@ -359,7 +359,7 @@ social_links:
       user_field: OnlyFans
       icon: globe
       icon_image: ""
-      icon_mask: ""
+      icon_mask: "onlyfans_icon"
       badge_background: ""
       badge_background_dark: ""
       badge_radius: ""
@@ -376,7 +376,7 @@ social_links:
       user_field: Fansly
       icon: globe
       icon_image: ""
-      icon_mask: ""
+      icon_mask: "fansly_icon"
       badge_background: ""
       badge_background_dark: ""
       badge_radius: ""
@@ -393,7 +393,7 @@ social_links:
       user_field: FetLife
       icon: globe
       icon_image: ""
-      icon_mask: ""
+      icon_mask: "fetlife_icon"
       badge_background: ""
       badge_background_dark: ""
       badge_radius: ""
@@ -410,7 +410,7 @@ social_links:
       user_field: FanCentro
       icon: globe
       icon_image: ""
-      icon_mask: ""
+      icon_mask: "fancentro_icon"
       badge_background: ""
       badge_background_dark: ""
       badge_radius: ""
@@ -427,7 +427,7 @@ social_links:
       user_field: Linktree
       icon: link
       icon_image: ""
-      icon_mask: ""
+      icon_mask: "linktree_icon"
       badge_background: ""
       badge_background_dark: ""
       badge_radius: ""

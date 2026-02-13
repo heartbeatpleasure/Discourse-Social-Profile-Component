@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="FetLife">
+  <title>FetLife</title>
+  <!-- Minimal, mask-friendly monogram (solid shapes) -->
+  <path d="M6.5 4h4.2v16H6.5z"/>
+  <path d="M10.7 4H19v3.2h-8.3z"/>
+  <path d="M10.7 10.1H17v3.2h-6.3z"/>
+  <!-- small dot accent -->
+  <path d="M18 16.2a2 2 0 1 0 0 4a2 2 0 1 0 0-4z"/>
+</svg>
