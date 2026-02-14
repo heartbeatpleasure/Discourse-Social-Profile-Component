@@ -8,7 +8,9 @@
     "fansly_icon": "assets/fansly.svg",
     "fancentro_icon": "assets/fancentro.svg",
     "linktree_icon": "assets/linktree.svg",
-    "tumblr_icon": "assets/tumblr.svg"
+    "tumblr_icon": "assets/tumblr.svg",
+    "pornhub_icon": "assets/pornhub.svg",
+    "amazon_icon": "assets/amazon.svg"
   },
   "component": true,
   "color_schemes": {}

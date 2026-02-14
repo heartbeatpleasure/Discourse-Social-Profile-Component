@@ -437,6 +437,42 @@ social_links:
       base_url: "https://linktr.ee/"
       allowed_hosts: "linktr.ee,www.linktr.ee"
       path_regex: ""
+
+    - id: pornhub
+      enabled: true
+      label: Pornhub
+      user_field: Pornhub
+      icon: globe
+      icon_image: ""
+      icon_mask: "pornhub_icon"
+      badge_background: ""
+      badge_background_dark: ""
+      badge_radius: ""
+      color: ""
+      color_dark: ""
+      input_type: handle
+      base_url: "https://www.pornhub.com/users/"
+      allowed_hosts: "pornhub.com,.pornhub.com"
+      path_regex: ""
+
+    - id: amazon_wishlist
+      enabled: true
+      label: Amazon Wishlist
+      user_field: Amazon Wishlist
+      icon: fab-amazon
+      icon_image: ""
+      icon_mask: "amazon_icon"
+      badge_background: ""
+      badge_background_dark: ""
+      badge_radius: ""
+      color: ""
+      color_dark: ""
+      input_type: url_any_https
+      base_url: ""
+      allowed_hosts: "amzn.to,.amazon.com,.amazon.co.uk,.amazon.de,.amazon.nl,.amazon.fr,.amazon.it,.amazon.es,.amazon.ca,.amazon.com.au"
+      path_regex: ""
+
+
   schema:
     name: social_link
     identifier: id
