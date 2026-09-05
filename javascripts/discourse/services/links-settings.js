@@ -134,6 +134,7 @@ export default class LinksSettings extends Service {
 
     return {
       id: entry.id,
+      userFieldId: siteUserField.id,
       name: label,
       href,
       icon: entry.icon || "globe",

@@ -1,68 +1,41 @@
 import { apiInitializer } from "discourse/lib/api";
 import SocialLinksClickable from "../components/social-links-clickable";
 
-function socialLinksConfig() {
-  let config = settings.social_links;
+function renderedSocialFieldIds(model, container) {
+  try {
+    const linksSettings = container?.lookup?.("service:links-settings");
+    const items = linksSettings?.fieldOptions?.(model);
 
-  if (typeof config === "string") {
-    try {
-      config = JSON.parse(config);
-    } catch {
-      config = [];
+    if (!Array.isArray(items)) {
+      return new Set();
     }
-  }
 
-  return Array.isArray(config) ? config : [];
-}
-
-function valueFor(object, key) {
-  return object?.[key] ?? object?.get?.(key);
-}
-
-function configuredSocialFieldIds(site) {
-  const siteFields = valueFor(site, "user_fields");
-  if (typeof siteFields?.find !== "function") {
+    return new Set(
+      items
+        .map((item) => item?.userFieldId)
+        .filter((id) => id !== undefined && id !== null)
+        .map(String)
+    );
+  } catch {
+    // Fail open: if the service/model is unavailable, leave Discourse's native
+    // profile fields untouched rather than hiding something unexpectedly.
     return new Set();
   }
-
-  const ids = new Set();
-
-  for (const entry of socialLinksConfig()) {
-    if (!entry) {
-      continue;
-    }
-
-    const name = String(entry.user_field || "").trim();
-    if (!name) {
-      continue;
-    }
-
-    // Match the same first field by name that LinksSettings uses.
-    const field = siteFields.find(
-      (candidate) => valueFor(candidate, "name") === name
-    );
-    const id = valueFor(field, "id");
-
-    if (id !== undefined && id !== null) {
-      ids.add(String(id));
-    }
-  }
-
-  return ids;
 }
 
-function withoutConfiguredSocialFields(fields, site) {
+function withoutRenderedSocialFields(fields, model, container) {
   if (typeof fields?.filter !== "function") {
     return fields;
   }
 
-  const socialFieldIds = configuredSocialFieldIds(site);
+  const socialFieldIds = renderedSocialFieldIds(model, container);
   if (!socialFieldIds.size) {
     return fields;
   }
 
   return fields.filter((item) => {
-    const id = valueFor(item?.field, "id");
+    const field = item?.field;
+    const id = field?.id ?? field?.get?.("id");
     return id === undefined || id === null || !socialFieldIds.has(String(id));
   });
 }
@@ -75,16 +48,19 @@ export default apiInitializer("1.13.0", (api) => {
   // visibility flag is enabled. For this theme component the social fields
   // should use "Show on user profile" as that publication flag, while "Show on
   // user card" stays disabled. Hide those same configured social fields from
-  // the profile's native text list so only the icons remain. This does not alter
-  // model.user_fields or backend authorization.
+  // the profile's native text list only when LinksSettings actually builds a
+  // valid icon/link for that user. Invalid, empty or disabled entries fail open
+  // and keep Discourse's native text visible. This does not alter model.user_fields
+  // or backend authorization.
   api.modifyClass(
     "controller:user",
     (Superclass) =>
       class extends Superclass {
         get publicUserFields() {
-          return withoutConfiguredSocialFields(
+          return withoutRenderedSocialFields(
             super.publicUserFields,
-            this.site
+            this.model,
+            api.container
           );
         }
       }
