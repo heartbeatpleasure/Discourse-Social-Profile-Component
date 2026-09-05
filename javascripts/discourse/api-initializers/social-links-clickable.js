@@ -73,11 +73,12 @@ export default apiInitializer("1.13.0", (api) => {
 
   // Discourse only sends non-staff viewers custom-field values when a native
   // visibility flag is enabled. For this theme component the social fields
-  // should use "Show on user card" as that publication flag. Hide those same
-  // configured social fields from the card's native text list so only the icons
-  // remain. This does not alter model.user_fields or backend authorization.
+  // should use "Show on user profile" as that publication flag, while "Show on
+  // user card" stays disabled. Hide those same configured social fields from
+  // the profile's native text list so only the icons remain. This does not alter
+  // model.user_fields or backend authorization.
   api.modifyClass(
-    "component:user-card-contents",
+    "controller:user",
     (Superclass) =>
       class extends Superclass {
         get publicUserFields() {

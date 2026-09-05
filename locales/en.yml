@@ -15,7 +15,7 @@ en:
 
       social_links:
         label: Social links
-        description: "Each item defines one icon/link shown on the user profile and user card. For normal members to see another user's social links, enable 'Show on user card' for the matching Discourse Custom User Field and leave 'Show on user profile' disabled. The component hides configured social fields from Discourse's native user-card text list; enabled entries are shown as icons instead."
+        description: "Each item defines one icon/link shown on the user profile and user card. For normal members to see another user's social links, enable 'Show on user profile' for the matching Discourse Custom User Field and leave 'Show on user card' disabled. The component hides configured social fields from Discourse's native profile text list; they are shown as icons instead."
         schema:
           properties:
             id:
