@@ -128,6 +128,7 @@ export default class SocialLinksClickable extends Component {
           rel="nofollow noopener noreferrer"
           target="_blank"
           title={{field.name}}
+          aria-label={{field.name}}
           style={{field.style}}
         >
           <span class={{field.frameClass}}>

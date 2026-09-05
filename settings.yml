@@ -461,7 +461,7 @@ social_links:
       user_field: Amazon Wishlist
       icon: fab-amazon
       icon_image: ""
-      icon_mask: "amazon_icon"
+      icon_mask: ""
       badge_background: ""
       badge_background_dark: ""
       badge_radius: ""
@@ -517,6 +517,6 @@ social_links:
         type: string
 
 svg_icons:
-  default: "user|globe|link|envelope|fab-twitter|fab-facebook|fab-linkedin-in|fab-instagram|fab-threads|fab-youtube|fab-discord|fab-steam|fab-twitch|fab-bandcamp|fab-spotify|fab-soundcloud|fab-tiktok|fab-telegram|fab-mastodon|fab-bluesky|fab-github|fab-strava|fab-tumblr"
+  default: "user|globe|link|envelope|fab-twitter|fab-facebook|fab-linkedin-in|fab-instagram|fab-threads|fab-youtube|fab-discord|fab-steam|fab-twitch|fab-bandcamp|fab-spotify|fab-soundcloud|fab-tiktok|fab-telegram|fab-mastodon|fab-bluesky|fab-github|fab-strava|fab-tumblr|fab-amazon"
   type: list
   description: "Required: icons that are not part of Discourse's default SVG sprite must be listed here, otherwise they won't render (e.g. Discord)."

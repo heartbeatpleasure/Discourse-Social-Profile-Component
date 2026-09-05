@@ -9,9 +9,10 @@
     "fancentro_icon": "assets/fancentro.svg",
     "linktree_icon": "assets/linktree.svg",
     "tumblr_icon": "assets/tumblr.svg",
-    "pornhub_icon": "assets/pornhub.svg",
-    "amazon_icon": "assets/amazon.svg"
+    "pornhub_icon": "assets/pornhub.svg"
   },
   "component": true,
-  "color_schemes": {}
+  "color_schemes": {},
+  "theme_version": "1.0.8",
+  "minimum_discourse_version": "2026.2.0"
 }

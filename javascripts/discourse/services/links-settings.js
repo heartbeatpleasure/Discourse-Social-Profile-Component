@@ -177,7 +177,19 @@ export default class LinksSettings extends Service {
     const baseUrl = (entry.base_url || "").trim();
     if (!baseUrl) return null;
 
-    return `${baseUrl}${encodeURIComponent(handle)}`;
+    return this._validateGeneratedUrl(
+      baseUrl,
+      `${baseUrl}${encodeURIComponent(handle)}`
+    );
+  }
+
+  _validateGeneratedUrl(baseUrl, urlString) {
+    const base = safeParseUrl(baseUrl);
+    const url = safeParseUrl(urlString);
+    if (!isSafeProtocol(base) || !isSafeProtocol(url)) return null;
+    if (url.origin !== base.origin) return null;
+
+    return urlString;
   }
 
   _validateUrl(entry, urlString, inputType) {
